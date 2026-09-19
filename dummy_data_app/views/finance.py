@@ -1,11 +1,12 @@
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from dummy_data_generators.generators.finance import generate_account_numbers, generate_transactions, generate_currency_list
 
-GET = "GET"
+from dummy_data_app.generators.finance import generate_account_numbers, generate_transactions, generate_currency_list
+from dummy_data_app.views.http_methods import HttpMethod
 
-@api_view([GET])
+
+@api_view([HttpMethod.GET])
 def account_numbers_list(request):
     try:
         digits = int(request.query_params.get("digits", 8))
@@ -19,7 +20,7 @@ def account_numbers_list(request):
     return Response({"account_numbers": account_numbers})
 
 
-@api_view([GET])
+@api_view([HttpMethod.GET])
 def transactions_list(request):
     try:
         quantity = int(request.query_params.get("quantity", 10))
@@ -31,7 +32,7 @@ def transactions_list(request):
     return Response({"transactions": transactions})
 
 
-@api_view([GET])
+@api_view([HttpMethod.GET])
 def currency_list(request):
     try:
         quantity = int(request.query_params.get("quantity")) if "quantity" in request.query_params else None

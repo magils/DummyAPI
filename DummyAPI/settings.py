@@ -31,8 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'dummy_todos',
-    'dummy_data_generators',
+    'dummy_data_app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

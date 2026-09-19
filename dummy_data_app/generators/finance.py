@@ -3,8 +3,8 @@ import random
 import string
 import secrets
 
-from dummy_data_generators.generators import utils
-from dummy_data_generators.generators.finance_constants import (
+from dummy_data_app.generators import utils
+from dummy_data_app.generators.finance_constants import (
     TRANSACTION_CATEGORIES,
     TRANSACTION_MERCHANTS,
     TRANSACTION_TYPES,
@@ -84,7 +84,6 @@ def generate_currency_list(quantity=None, codes=[], random_currencies=False):
         return currencies[:quantity]
     elif codes:
         codes = list(map(lambda c: c.lower(), codes))
-        print(codes)
         filtered_currencies = filter(lambda c: c["code"].lower() in codes, CURRENCIES)
         return list(filtered_currencies)
     else:

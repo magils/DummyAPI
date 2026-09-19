@@ -238,4 +238,5 @@ TRANSACTION_MERCHANTS = [
     "PayPal",
     "IRS Tax Refund",
 ]
+
 TRANSACTION_TYPES = ["debit", "credit"]

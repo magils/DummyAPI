@@ -1,5 +1,5 @@
 from django.urls import path
-from dummy_data_generators.views import finance
+from dummy_data_app.views import finance
 
 urlpatterns = [
     path("finance/account-numbers", finance.account_numbers_list, name ="account_numbers"),
