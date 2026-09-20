@@ -1,14 +1,18 @@
-from datetime import timedelta
+from datetime import timedelta, datetime
 import random
 import string
 import secrets
 
-from dummy_data_app.generators import utils
+from dummy_data_app.generators.utils import (
+    random_date,
+    random_numeric_value
+)
 from dummy_data_app.generators.finance_constants import (
     TRANSACTION_CATEGORIES,
     TRANSACTION_MERCHANTS,
     TRANSACTION_TYPES,
-    CURRENCIES
+    CURRENCIES,
+    STOCKS
 )
 
 TRANSACTION_DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
@@ -46,10 +50,10 @@ def generate_transactions(quantity=5, currency="USD"):
     transactions = []
 
     for _ in range(quantity):
-        txn_date = utils.random_date()
+        txn_date = random_date()
         type = random.choice(TRANSACTION_TYPES)
         posted_date = txn_date + timedelta(days=random.randint(1,3))
-        raw_amount = utils.random_numeric_value(9999.99)
+        raw_amount = random_numeric_value(9999.99)
         amount = -1 * raw_amount if type == "debit" else raw_amount
         merchant = random.choice(TRANSACTION_MERCHANTS)
         category = random.choice(TRANSACTION_CATEGORIES)
@@ -64,7 +68,7 @@ def generate_transactions(quantity=5, currency="USD"):
             "category": category,
             "type": type,
             "amount": amount,
-            "balance":  utils.random_numeric_value(1999.99),
+            "balance":  random_numeric_value(1999.99),
             "status": "posted",
             "currency": currency,
         }
@@ -91,6 +95,41 @@ def generate_currency_list(quantity=None, codes=[], random_currencies=False):
 
 
 
+def generate_stocks(quantity=10, symbol=None):
+    stocks = []
 
+    if symbol:
+        stock_entries = [(symbol, STOCKS.get(symbol))] if symbol in STOCKS else []
+    else:
+        stock_entries = list(STOCKS.items())[:quantity]
 
-    
+    for symbol, stock_data  in stock_entries:
+        stock =  {
+            "symbol": symbol,
+            "exchange": "NASDAQ",
+            "currency": "USD",
+            "sector": stock_data["sector"],
+            "industry": stock_data["industry"],
+            "price": random_numeric_value(1500, start_at=1),
+            "previousClose": random_numeric_value(1500, start_at=1),
+            "open": random_numeric_value(1500, start_at=1),
+            "dayHigh": random_numeric_value(1500, start_at=1),
+            "dayLow": random_numeric_value(1500, start_at=1),
+            "change": random_numeric_value(1500, start_at=1),
+            "changePercent": random_numeric_value(1500, start_at=1),
+            "volume": random_numeric_value(12345678, start_at=1000, only_integer=True),
+            "sharesOutstanding": random_numeric_value(1234567890, start_at=1, only_integer=True),
+            "marketCap": random_numeric_value(1234567890, start_at=1, only_integer=True),
+            "eps": random_numeric_value(1234, start_at=1),
+            "peRatio": random_numeric_value(200, start_at=1),
+            "dividendYield": random_numeric_value(1, start_at=0.1),
+            "week52High": random_numeric_value(1500, start_at=1),
+            "week52Low": random_numeric_value(1500, start_at=1),
+            "beta": random_numeric_value(10, start_at=0.1),
+            "lastUpdated": datetime.now().strftime(TRANSACTION_DATE_FORMAT)
+        }
+
+        stocks.append(stock)
+
+    return stocks
+

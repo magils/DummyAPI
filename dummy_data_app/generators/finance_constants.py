@@ -240,3 +240,36 @@ TRANSACTION_MERCHANTS = [
 ]
 
 TRANSACTION_TYPES = ["debit", "credit"]
+
+STOCKS = {
+    "AAPL":  {"sector": "Information Technology", "industry": "Technology Hardware, Storage & Peripherals"},
+    "MSFT":  {"sector": "Information Technology", "industry": "Software"},
+    "GOOGL": {"sector": "Communication Services", "industry": "Interactive Media & Services"},
+    "AMZN":  {"sector": "Consumer Discretionary", "industry": "Broadline Retail"},
+    "META":  {"sector": "Communication Services", "industry": "Interactive Media & Services"},
+    "NVDA":  {"sector": "Information Technology", "industry": "Semiconductors"},
+    "TSLA":  {"sector": "Consumer Discretionary", "industry": "Automobiles"},
+    "NFLX":  {"sector": "Communication Services", "industry": "Entertainment"},
+    "ADBE":  {"sector": "Information Technology", "industry": "Software"},
+    "ORCL":  {"sector": "Information Technology", "industry": "Software"},
+    "INTC":  {"sector": "Information Technology", "industry": "Semiconductors"},
+    "AMD":   {"sector": "Information Technology", "industry": "Semiconductors"},
+    "JPM":   {"sector": "Financials",             "industry": "Banks"},
+    "BAC":   {"sector": "Financials",             "industry": "Banks"},
+    "V":     {"sector": "Financials",             "industry": "Transaction & Payment Processing"},
+    "MA":    {"sector": "Financials",             "industry": "Transaction & Payment Processing"},
+    "GS":    {"sector": "Financials",             "industry": "Capital Markets"},
+    "WFC":   {"sector": "Financials",             "industry": "Banks"},
+    "JNJ":   {"sector": "Health Care",            "industry": "Pharmaceuticals"},
+    "PFE":   {"sector": "Health Care",            "industry": "Pharmaceuticals"},
+    "UNH":   {"sector": "Health Care",            "industry": "Managed Health Care"},
+    "MRK":   {"sector": "Health Care",            "industry": "Pharmaceuticals"},
+    "KO":    {"sector": "Consumer Staples",       "industry": "Beverages"},
+    "PEP":   {"sector": "Consumer Staples",       "industry": "Beverages"},
+    "WMT":   {"sector": "Consumer Staples",       "industry": "Consumer Staples Distribution & Retail"},
+    "COST":  {"sector": "Consumer Staples",       "industry": "Consumer Staples Distribution & Retail"},
+    "DIS":   {"sector": "Communication Services", "industry": "Entertainment"},
+    "NKE":   {"sector": "Consumer Discretionary", "industry": "Textiles, Apparel & Luxury Goods"},
+    "XOM":   {"sector": "Energy",                 "industry": "Oil, Gas & Consumable Fuels"},
+    "CVX":   {"sector": "Energy",                 "industry": "Oil, Gas & Consumable Fuels"},
+}
