@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 class CommonParams(serializers.Serializer):
-    quantity = serializers.IntegerField(required=False, allow_null=True, default=None, min_value=1)
+    quantity = serializers.IntegerField(required=False, default=10, min_value=1)
 
 class AccountNumbersParams(CommonParams):
     digits = serializers.IntegerField(default=8)
@@ -15,4 +15,4 @@ class CurrenciesParams(CommonParams):
     random_currencies = serializers.BooleanField(default=False)
 
 class StocksParams(CommonParams):
-    symbol = serializers.CharField()
+    symbol = serializers.CharField(default=None)
