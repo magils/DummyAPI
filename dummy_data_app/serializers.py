@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from dummy_data_app.models import News
 
 class CommonParams(serializers.Serializer):
     quantity = serializers.IntegerField(required=False, default=10, min_value=1)
@@ -16,3 +17,8 @@ class CurrenciesParams(CommonParams):
 
 class StocksParams(CommonParams):
     symbol = serializers.CharField(default=None)
+
+class NewsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = News
+        fields = "__all__"
