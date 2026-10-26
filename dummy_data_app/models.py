@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class News(models.Model):
     title = models.CharField(max_length=512)
@@ -12,5 +13,5 @@ class News(models.Model):
     country = models.CharField(max_length=512)
     is_featured = models.BooleanField(default=False)
     is_breaking = models.BooleanField(default=False)
-    published_at = models.DateTimeField(auto_now_add=True)
+    published_at = models.DateTimeField(default=timezone.now)
     created_at = models.DateTimeField(auto_now_add=True)
